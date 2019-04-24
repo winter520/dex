@@ -1,0 +1,29 @@
+{
+  "net": [
+    {
+      "name": "Fusion",
+      "url": "https://api.dcrm.network",
+      "chainId": 4
+    },
+    {
+      "name": "Fusion dev",
+      "url": "/api",
+      "chainId": 4
+    },
+    {
+      "name": "Eth Test",
+      "url": "https://api.nodes.run",
+      "chainId": 4
+    },
+    {
+      "name": "Test",
+      "url": "http://10.192.32.92:8099",
+      "chainId": 4
+    },
+    {
+      "name": "Test1",
+      "url": "https://10.192.32.92",
+      "chainId": 40400
+    }
+  ]
+}

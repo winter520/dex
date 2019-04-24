@@ -1,0 +1,360 @@
+@import './mixin.scss';
+// @import './base.scss';
+
+.exchangeCont_box{
+  $top: size(60);
+  $lr: size(270);
+  $bottom: size(260);
+  @include wh(100%);width: 100vw;height: 100vh;position: relative; padding: size(60) size(280) size(260);box-sizing: border-box!important;@extend %bg_5;
+  %tb {width: 100%;position: absolute;left: 0;right: 0;}
+  %lr {width: $lr;position: absolute;top: $top;bottom: $bottom}
+  .top{@extend %tb;top: 0;}
+  .bottom{@extend %tb;bottom: 0;height: size(250);}
+  .left{@extend %lr;left: 0;}
+  .right{@extend %lr;right: 0;}
+  .middle{width:100%;height:100%;}
+}
+
+.exchangeTop_box{
+  height: size(50);@extend %bg_6 ;padding: 0 size(15);
+  .exchangeTop_logo{
+    height: size(30);@include compatible(align-items, flex-end);
+    img {
+      height: $height100;
+    }
+    .p1 {
+      font-size: size(12);@extend %fontColor-sub;white-space: nowrap;margin-left: size(8);
+    }
+  }
+  .exchangeTop_nav {
+    // height: size(50);line-height: size(50);
+    @include fh(50);
+    .el-menu.el-menu--horizontal{border:none;}
+    .el-menu-item{
+      padding: 0 10px;
+    }
+    .el-menu
+      ,.el-menu--horizontal>.el-menu-item
+      ,.el-menu--horizontal>.el-submenu .el-submenu__title{
+        height: size(50);line-height: size(50);background:none;@extend %fontColor-main;font-size: size(12)
+      }
+    .item {display: block}
+  }
+}
+.nav_addres{
+  .icon {
+    @include wh(13);margin-left: size(10);
+    img {
+      @include wh(100%, 100%);
+    }
+  }
+}
+
+.lTabTop_box{@include wh(100%, 50%);@extend %bg_6 ;position: relative;padding-top: size($theadH + $serH);}
+.lTabTop_tabCoin{
+  @include absolute(0, 0, '', 0);
+  .coin_list {
+    height: size($theadH);@extend %b_b_1;
+    li {
+      width:100%;font-size: size(10);@extend %fontColor-sub;text-align: center;cursor:pointer;padding: 0 5%;
+      p{
+        padding: size(0) size(3);@include compatible(border-radius, size(3));cursor: pointer;line-height: size(20);
+      }
+      .active-blue{@extend %active-blue;}
+    }
+  }
+  .search_select {
+    height: size($serH);@extend %bg_6 ;
+    li {
+      width: 100%;padding: size(2) size(5) size(2);
+      .el-input--prefix{
+        font-size: size(12);@include fh(22);display: flex;@include compatible(align-items, center);
+        .el-input__inner{
+          @include fh(22);width: size(100);font-size: size(10);@extend %bg_3 ;border: none;padding: 0 size(5) 0 size(20);border-radius: size(4);
+          &:focus {border: 1px solid $color_blue;}
+        }
+      }
+      .el-input__prefix{
+        @include fh(22);left: 0;cursor: pointer;
+        .el-input__icon{@include fh(22);width: size(20)}
+      }
+      .el-radio{
+        margin-right: size(10);
+        .el-radio__label{padding-left:size(5);font-size: size(10)}
+        .el-radio__inner{
+          @extend %bg_3 ;border:1px solid $black;
+        }
+        .el-radio__input.is-checked{
+          .el-radio__inner{border-color: $color_blue;@extend %bg_4;}
+        }
+      }
+    }
+  }
+}
+
+.el-scrollbar__bar.is-vertical{width: size(2);}
+.el-scrollbar__bar.is-horizontal{height: size(5);}
+.el-scrollbar__thumb{@extend %bg_4;}
+.el-scrollbar .el-scrollbar__wrap {overflow-x: hidden;}
+
+.lTabTop_tableBox{
+  $pt: size(24);
+  padding-bottom: size(5);
+  @include wh(100%);position: relative;padding-top: $pt;
+  .table_thead {
+    font-size: size(10);padding: 0 size(5);@extend %fontColor-sub;@include absolute(0, 0, '', 0);white-space: nowrap;
+    li {
+      height: $pt;
+    }
+  }
+  .table_scroll {
+    @include wh(100%);
+    .table_tbody {
+      @include wh(100%);font-size: size(8);@extend %fontColor-main;padding: 0 size(5);cursor: pointer;
+      li {
+        height: $pt;
+        p {
+          white-space: nowrap;
+          color: $white
+        }
+        .red {@extend %fontColor-danger;}
+        .green {@extend %fontColor-info;}
+      }
+      &:hover {
+        background:rgb(37, 45, 56);
+      }
+    }
+  }
+}
+
+.lTabBottom_box{
+  @include wh(100%, 50%);position: relative;padding-top: size(40);
+  .lTabBottom_cont{
+    @include wh(100%);@extend %bg_6 ;
+    .lTabBottom_title{
+      height: size(30);@include absolute(10px, 0, '', 0);@extend %bg_2 ;padding: 0 size(5);
+      h3 {font-size: size(12);@extend %fontColor-sub;line-height: size(30);}
+      .arrow {
+        @include absolute(0, 0, 0, '');display: flex;@include compatible(flex-direction, column);@include compatible(align-items, center);padding: size(8) 0;cursor: pointer;
+        .up{@include arrow('bottom', size(3), $color_gray)}
+        .line{width: size(20);height: size(2);@extend %bg_1;margin: size(3) size(5) size(3);}
+        .down{@include arrow('top', size(3), $color_gray)}
+      }
+    }
+  }
+}
+
+.bAllTabCont_box {position: relative;padding-right: size(540);}
+.blTabCont_box{
+  @include wh(100%);@extend %bg_6 ;position: relative;padding-top: size($theadH + $serH);
+  .blTabCont_thead {
+    @include absolute(0, 0, '', 0);
+    .blTabCont_tab {
+      @include wh(100%, $theadH);padding: 0 size(5);
+      .history_tab {
+        font-size: size(10);@extend %fontColor-sub;@include wh(100%);
+        li {
+          padding: size(2) size(5);line-height: size(20);
+          p{
+            padding: 0 size(5);border-radius: size(3);cursor: pointer;white-space: nowrap;
+          }
+          .active-blue{@extend %active-blue;}
+        }
+      }
+    }
+    .blTabCont_set {
+      @include wh(100%, $serH);@extend %bg_2;padding: 0 size(8);
+      .blTabCont_setScroll{
+        white-space: nowrap;
+      }
+      .hide_other{
+        .el-checkbox {
+          .el-checkbox__label {font-size: size(10);padding-left:size(3);}
+          .el-checkbox__input {
+            .el-checkbox__inner{
+              @extend %bg_3 ;border:1px solid $black;
+            }
+            &.is-checked{
+              .el-checkbox__inner{
+                border-color: $color_blue;@extend %bg_4;
+              }
+            }
+          }
+        }
+      }
+      .more_select {
+        @extend %fontColor-sub;font-size: size(10);margin: 0 size(10);
+        .p1 {margin: 0 size(5)}
+        .el-input{
+          font-size: size(10);
+          .el-input__inner {
+            @extend %bg_3 ;border-color: $color_light_gray;height: size(20);width: size(40);padding: 0 size(5);
+          }
+        }
+        .el-select {
+          .el-input__suffix {
+            height: size(20);right: 0;
+          }
+          .el-input--suffix {
+            height: size(20);right: 0;display: flex;@include compatible(align-items, center);
+            .el-input__inner {
+              width: size(60);
+            }
+            .el-input__suffix-inner {
+              height: size(20);
+              .el-input__icon {
+                line-height: size(20);
+              }
+            }
+          }
+        }
+      }
+      .select_date {
+        .el-radio-group {
+          
+          .el-radio-button {
+            .el-radio-button__inner {
+              padding: size(3) size(3);@extend %bg_3 ;font-size: size(10);border-color: $color_light_gray;@extend %fontColor-sub;
+            }
+            &.is-active {
+              .el-radio-button__inner {
+                @extend %bg_4;color:#fff;
+              }
+            }
+          }
+        }
+      }
+      .total_amount {
+        @extend %fontColor-sub;font-size: size(10);text-align: right;
+      }
+    }
+  }
+  .lTabTop_tableBox {
+    padding-top:0;
+    .tableBox{
+      min-width: size(560);padding: 0 size(10);
+      .table_thead {
+        position:static;
+      }
+    }
+  }
+}
+
+.brTabCont_box {
+  @include wh(540, 100%);padding-left: size(10);@include absolute(0, 0, 0, '');
+  .brTabCont_cont{
+    @include wh(100%);@extend %bg_6 ;
+    .brTabCont_thead {
+      @include wh(100%, $theadH);padding:0 size(5);font-size: size(10);color:$color_blue;@extend %bg_2;
+    }
+    .brTabCont_form {
+      .form {
+        width: 50%;padding:0 size(15);
+        li {
+          .title {
+            font-size: size(10);@extend %fontColor-sub;
+            .label {
+              
+            }
+            .set {
+              span {
+                text-decoration: underline;cursor: pointer;margin-left: size(3);
+              }
+            }
+          }
+          .input_num {
+            height: size(30);
+            .el-input-number {
+              @include wh(100%, 30);
+              .el-input-number__decrease, .el-input-number__increase{
+                height: size(30);top:0;display:flex;@include compatible(align-items, center);@include compatible(justify-content, center);@extend %bg_3 ;@extend %border_color;
+              }
+              .el-input {
+                height: size(30);display:flex;@include compatible(align-items, center);
+                .el-input__inner {
+                  height: size(30);@extend %bg_3 ;@extend %border_color;
+                }
+              }
+            }
+            .el-input {
+              height: size(30);
+              .el-input__inner {
+                height: size(30);@extend %bg_3 ;@extend %border_color;@extend %fontColor-main;
+              }
+            }
+          }
+          .input_text {
+            .el-input__inner{text-align: left;}
+          }
+          .set_btn {
+            margin-top: size(20);
+            .el-button {
+              width:100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.rTabCont_box{
+  @extend %bg_6 ;
+  .rTabCont_top{
+    @include wh(100%, 50%);position: relative;padding-top: size($theadH);
+    .rTabCont_switch{
+      height: size($theadH);@include absolute(0, 0, '', 0);@extend %b_b_1;
+      ul {
+        height: 100%;
+        li {
+          height: 100%;padding: size(3) size(4);
+          .img {
+            height: 100%;padding: size(1) size(5);border-radius:size(3);cursor: pointer;
+            img {
+              height: 100%;
+            }
+          }
+          .active-gray{
+            @extend %bg_3 ;
+          }
+        }
+      }
+    }
+  }
+  .rTabCont_bottom{
+    @include wh(100%, 50%);position: relative;padding-top: size($theadH);
+    .rTabCont_price{
+      @include wh(100%, $theadH);@include absolute(0, 0, '', 0);@extend %bg_2;padding: 0 size(5);
+      ul {
+        height: 100%;
+        li {
+          @include fh($theadH);font-size: size(16);@extend %fontColor-sub;font-weight:600;
+          p{
+            margin-right: 10px;
+            &.red {@extend %fontColor-danger;}
+            &.yellow {@extend %fontColor-warn;}
+            &.green {@extend %fontColor-info;}
+          }
+        }
+      }
+    }
+    .lTabTop_tableBox{
+      padding-top: 0;
+    }
+  }
+}
+
+// .el-popper {
+//   background: $input_bg;@extend %bg_6;border: 1px solid $input_bg;
+//   .el-select-dropdown__item {
+//     &.hover {
+//       @extend %bg_6;
+//     }
+//   }
+//   .popper__arrow {
+//     border-bottom-color: $input_bg !important;
+//     &::after{
+//       border-bottom-color: $input_bg !important;
+//     }
+//   }
+// }

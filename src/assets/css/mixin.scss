@@ -1,0 +1,44 @@
+@import './base.scss';
+@mixin compatible ($name, $value) {
+  -webkit-#{$name}: $value;
+  -moz-#{$name}: $value;
+  -ms-#{$name}: $value;
+  -o-#{$name}: $value;
+  #{$name}: $value;
+}
+
+@mixin absolute ($top, $right, $bottom, $left) {
+  position: absolute;
+  @if $top != '' {
+    top: $top
+  }
+  @if $right != '' {
+    right: $right
+  }
+  @if $bottom != '' {
+    bottom: $bottom
+  }
+  @if $left != '' {
+    left: $left
+  }
+}
+
+@mixin wh ($w, $h: $w) {
+  width: size($w);
+  height: size($h);
+}
+
+@mixin arrow ($dir, $size: 4px, $color: #000) {
+  @if $dir =='left' or $dir =='right' {
+    @include wh(0);border-top:$size solid transparent;border-bottom:$size solid transparent;border-#{$dir}:$size solid $color;
+  } @else {
+    @include wh(0);border-left:$size solid transparent;border-right:$size solid transparent;border-#{$dir}:$size solid $color;
+  }
+}
+
+@mixin fh ($size) {
+  height: size($size);
+  line-height: size($size)
+}
+
+
