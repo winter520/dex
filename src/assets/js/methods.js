@@ -31,7 +31,7 @@ $$.baseUrl = 'https://api.nodes.run'
 // $$.baseUrl = 'http://47.92.255.230:8111'
 
 // $$.serverURL = 'http://localhost:8087'
-$$.serverURL = 'http://localhost:8085'
+$$.serverURL = 'http://localhost:8095'
 // $$.serverURL = 'https://localhost:8085'
 // $$.serverURL = 'http://54.164.7.63:8087'
 // $$.serverURL = 'https://wallet.dcrm.network:8085'

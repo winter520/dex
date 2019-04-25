@@ -6,8 +6,8 @@ const fs = require('fs')
 const net = require('net')
 const bodyParser = require('body-parser')
 
-const httpsPort =  8086
-const httpPort =  8087
+const httpsPort =  8096
+const httpPort =  8097
 
 const privateKey = fs.readFileSync('./server/keys/privkey.pem', 'utf-8')
 const cretificats = fs.readFileSync('./server/keys/cert.pem', 'utf-8')
@@ -27,12 +27,12 @@ app.all('*', function (req, res, next) {
 app.use(bodyParser.json({limit: '50mb'}))
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}))
 
-let transferInfo = require('./server/transferInfo')
-let lilo = require('./server/lilo')
+// let transferInfo = require('./server/transferInfo')
+// let lilo = require('./server/lilo')
 let order = require('./server/order')
 
-app.use('/transfer', transferInfo)
-app.use('/lilo', lilo)
+// app.use('/transfer', transferInfo)
+// app.use('/lilo', lilo)
 app.use('/order', order)
 
 const httpsServer = https.createServer(credentials, app)
@@ -55,6 +55,6 @@ net.createServer(function (socket) {
     console.log(err)
   })
   console.log('success')
-}, app).listen(8085)
+}, app).listen(8095)
 
 // console.log('success')

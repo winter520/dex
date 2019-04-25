@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
-import wallet from './store-wallet.js'
+let langEn = require('@/assets/js/language/en')
+// import wallet from './store-wallet.js'
 import exchange from './store-exchange.js'
 // const exchange = require('./store-exhange').default
 // const wallet = require('./store-wallet').default
@@ -14,6 +14,14 @@ const store = new Vuex.Store({
   state: {
     address: '',
     coinlist: require('@etc/js/config/coinIfno').coininfo,
+    loginType: [
+      {name: 'MetaMask / Mist', dataShow: 'MetaMask', checked: true},
+      {name: 'Ledger Wallet', dataShow: 'LEDGER', checked: false},
+      {name: langEn.IMPORT_TYPE.TREZOR, dataShow: 'TREZOR', checked: false},
+      {name: langEn.IMPORT_TYPE.KEYSTORE, dataShow: 'keystore', checked: false},
+      {name: langEn.IMPORT_TYPE.PRIVATE_KEY, dataShow: 'private', checked: false},
+      // {name: 'Mnemonic Phrase', dataShow: 'Mnemonic', checked: false} //后期使用
+    ]
   },
   mutations: {
     storeAddress (state, address) {
@@ -36,7 +44,7 @@ const store = new Vuex.Store({
     },
   },
   modules: {
-    wallet,
+    // wallet,
     exchange
   }
   // state: {

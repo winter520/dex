@@ -174,7 +174,7 @@ export default {
       isShowTip: true,
       isMetamaskShowTip: true,
       ledger: "",
-      selectTypeArr: this.$store.state.wallet.loginType,
+      selectTypeArr: this.$store.state.loginType,
       mnemonicPhrase: "",
       mnemonicPwd: ""
     }

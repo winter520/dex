@@ -219,7 +219,7 @@ export default {
       moreAddr: [],
       addrViewVisible: false,
       selectTypeVal: 'keystore',
-      selectTypeArr: this.$store.state.wallet.loginType,
+      selectTypeArr: this.$store.state.loginType,
       HDPath: this.$$.bipPath,
       HDPathVal: this.$$.bipPath,
       HDPath_self: this.$$.bipPath,
@@ -319,11 +319,14 @@ export default {
       this.setStore()
       // this.sendInfoToParent()
       if (this.$route.query.isBackup) {
-        this.$router.push("/backupWallet")
+        // this.$router.push("/backupWallet")
+        this.$router.push("/")
       } else if (this.$route.query.isExchange) {
-        this.$router.push("/exchangeEnter")
+        // this.$router.push("/exchangeEnter")
+        this.$router.push("/")
       } else {
-        this.$router.push("/MyAssets")
+        // this.$router.push("/MyAssets")
+        this.$router.push("/")
       }
     },
     inputFileBtn () {
